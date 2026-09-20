@@ -53,7 +53,8 @@ function Header() {
             onClick={() => setMenuOpen((open) => !open)}
           >
             <span className={`header__toggle-line ${menuOpen ? 'is-open' : ''}`} />
-            <span className={`header__toggle-line ${menuOpen ? 'is-open' : ''}`} />
+<span className={`header__toggle-line ${menuOpen ? 'is-open' : ''}`} />
+<span className={`header__toggle-line ${menuOpen ? 'is-open' : ''}`} />
           </button>
         </div>
       </div>
@@ -76,7 +77,7 @@ function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.3 }}
                 >
-                 <a
+                <a
   href={item.href}
   onClick={(e) => {
     e.preventDefault();
@@ -85,16 +86,23 @@ function Header() {
 
     setMenuOpen(false);
 
-    setTimeout(() => {
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
+   if (target) {
+  const headerOffset = 90;
 
-        window.history.replaceState(null, '', item.href);
-      }
-    }, 150);
+  const targetPosition =
+    target.getBoundingClientRect().top +
+    window.scrollY -
+    headerOffset;
+
+  requestAnimationFrame(() => {
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth',
+    });
+  });
+
+  window.history.replaceState(null, '', item.href);
+}
   }}
 >
   {item.label}
@@ -103,12 +111,33 @@ function Header() {
               ))}
             </ul>
             <a
-              href="#admissions"
-              className="btn btn--primary"
-              onClick={() => setMenuOpen(false)}
-            >
-              Enquire About Admissions
-            </a>
+  href="#admissions"
+  className="btn btn--primary"
+  onClick={(e) => {
+    e.preventDefault();
+
+    const target = document.querySelector('#admissions');
+
+    setMenuOpen(false);
+
+    if (target) {
+      const headerOffset = 90;
+      const targetPosition =
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerOffset;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      });
+
+      window.history.replaceState(null, '', '#admissions');
+    }
+  }}
+>
+  Enquire About Admissions
+</a>
           </motion.div>
         )}
       </AnimatePresence>

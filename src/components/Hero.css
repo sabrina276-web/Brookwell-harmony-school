@@ -81,7 +81,7 @@
 
 .hero__circle--left {
   left: clamp(1rem, 6vw, 6rem);
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
 }
 
