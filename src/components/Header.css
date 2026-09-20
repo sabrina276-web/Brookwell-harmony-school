@@ -1,0 +1,319 @@
+.header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 100;
+  padding-block: 1.15rem;
+  background: transparent;
+  transition:
+    background-color 0.45s ease,
+    padding 0.45s ease,
+    box-shadow 0.45s ease,
+    backdrop-filter 0.45s ease;
+}
+
+.header--scrolled {
+  background: rgba(21, 15, 31, 0.88);
+  backdrop-filter: blur(18px);
+  padding-block: 0.7rem;
+  box-shadow: 0 12px 35px -22px rgba(0, 0, 0, 0.65);
+  border-bottom: 1px solid rgba(251, 249, 246, 0.07);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* --------------------------------
+   BRAND
+-------------------------------- */
+
+.header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--color-off-white);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.header__logo {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+  transition:
+    width 0.45s ease,
+    height 0.45s ease,
+    transform 0.35s ease;
+}
+
+.header__brand:hover .header__logo {
+  transform: scale(1.04);
+}
+
+.header--scrolled .header__logo {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.header__brand-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* --------------------------------
+   DESKTOP NAVIGATION
+-------------------------------- */
+
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2vw, 1.9rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav a {
+  position: relative;
+  display: inline-block;
+  color: rgba(251, 249, 246, 0.84);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding-block: 0.35rem;
+  transition: color 0.3s ease;
+}
+
+.header__nav a:hover,
+.header__nav a:focus-visible {
+  color: var(--color-off-white);
+}
+
+.header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.header__nav a:hover::after,
+.header__nav a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* --------------------------------
+   ACTIONS
+-------------------------------- */
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header__cta {
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+}
+
+/* --------------------------------
+   MOBILE TOGGLE
+-------------------------------- */
+
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: rgba(251, 249, 246, 0.08);
+  border: 1px solid rgba(251, 249, 246, 0.14);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 102;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.header__toggle:hover {
+  background: rgba(251, 249, 246, 0.14);
+  border-color: rgba(251, 249, 246, 0.25);
+}
+
+.header__toggle:active {
+  transform: scale(0.94);
+}
+
+.header__toggle-line {
+  width: 17px;
+  height: 1.5px;
+  background: var(--color-off-white);
+  border-radius: 2px;
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
+}
+
+.header__toggle-line.is-open:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.header__toggle-line.is-open:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* --------------------------------
+   MOBILE MENU
+-------------------------------- */
+
+.header__mobile {
+  overflow: hidden;
+  background: rgba(21, 15, 31, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 249, 246, 0.11);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.35),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.header__mobile ul {
+  list-style: none;
+  margin: 0;
+  padding: 1.1rem 1.4rem 0.55rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.header__mobile li {
+  border-bottom: 1px solid rgba(251, 249, 246, 0.07);
+}
+
+.header__mobile li:last-child {
+  border-bottom: none;
+}
+
+.header__mobile a {
+  display: block;
+  color: rgba(251, 249, 246, 0.9);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.72rem 0.15rem;
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.header__mobile a:hover,
+.header__mobile a:focus-visible {
+  color: var(--color-gold);
+  padding-left: 0.35rem;
+}
+
+.header__mobile .btn {
+  margin: 1rem 1.4rem 1.4rem;
+  text-align: center;
+}
+
+/* --------------------------------
+   MOBILE
+-------------------------------- */
+
+@media (max-width: 900px) {
+  .header {
+    padding-block: 0.85rem;
+  }
+
+  .header--scrolled {
+    padding-block: 0.65rem;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  .header__toggle {
+    display: flex;
+  }
+
+  .header__mobile {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: 4vw;
+    left: auto;
+    width: min(320px, 88vw);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    border-radius: 18px;
+  }
+}
+
+/* --------------------------------
+   SMALL PHONES
+-------------------------------- */
+
+@media (max-width: 480px) {
+  .header__brand {
+    gap: 0.55rem;
+  }
+
+  .header__logo {
+    width: 2.65rem;
+    height: 2.65rem;
+  }
+
+  .header--scrolled .header__logo {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .header__brand-name {
+    font-size: 0.92rem;
+    max-width: 185px;
+    white-space: normal;
+    line-height: 1.05;
+  }
+
+  .header__toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__mobile {
+    right: 3vw;
+    width: min(310px, 94vw);
+  }
+}

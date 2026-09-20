@@ -1,0 +1,331 @@
+.gallery {
+  background: var(--color-off-white);
+  overflow: hidden;
+  text-align: center;
+}
+
+.gallery__title {
+  margin-top: 1.1rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.gallery__lead {
+  margin-top: 1.5rem;
+  max-width: 46ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: #4a4152;
+}
+
+.gallery__field-wrap {
+  margin-top: 2.75rem;
+}
+
+.gallery {
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+.gallery__title {
+  margin-top: 1.1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.gallery__lead {
+  margin-top: 1rem;
+  max-width: 46ch;
+  color: #4a4152;
+}
+
+.gallery__field-wrap {
+  margin-top: 2.75rem;
+}
+
+/* --------------------------------------------------
+   Closing quote
+-------------------------------------------------- */
+
+.gallery__quote {
+  position: relative;
+
+  max-width: 900px;
+  margin: clamp(5rem, 9vw, 8rem) auto 0;
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem clamp(1rem, 3vw, 2rem);
+
+  text-align: center;
+}
+
+.gallery__quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 52px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: var(--color-gold);
+}
+
+.gallery__quote-label {
+  display: block;
+
+  color: var(--color-rich-violet);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.gallery__quote-text {
+  max-width: 18ch;
+  margin: 1.5rem auto 0;
+
+  color: var(--color-deep-purple);
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+/* Subtle decorative quotation mark */
+
+.gallery__quote-text::before {
+  content: '“';
+
+  display: block;
+  height: 0.55em;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 0.5;
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .gallery__field-wrap {
+    margin-top: 2.5rem;
+  }
+
+  .gallery__quote {
+    max-width: 760px;
+    margin-top: 5rem;
+  }
+
+  .gallery__quote-text {
+    max-width: 20ch;
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .gallery__title {
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+  }
+
+  .gallery__lead {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .gallery__field-wrap {
+    margin-top: 2.25rem;
+  }
+
+  .gallery__quote {
+    margin-top: 4rem;
+    padding: 3rem 0.75rem 0.5rem;
+  }
+
+  .gallery__quote::before {
+    width: 42px;
+  }
+
+  .gallery__quote-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .gallery__quote-text {
+    max-width: 17ch;
+    margin-top: 1.35rem;
+
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .gallery__quote-text::before {
+    font-size: 3.2rem;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__quote {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------
+   Closing quote
+-------------------------------------------------- */
+
+.gallery__quote {
+  position: relative;
+
+  max-width: 900px;
+  margin: clamp(5rem, 9vw, 8rem) auto 0;
+  padding: clamp(3rem, 6vw, 5rem) 1.5rem clamp(1rem, 3vw, 2rem);
+
+  text-align: center;
+}
+
+.gallery__quote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 52px;
+  height: 1px;
+
+  transform: translateX(-50%);
+
+  background: var(--color-gold);
+}
+
+.gallery__quote-label {
+  display: block;
+
+  color: var(--color-rich-violet);
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.gallery__quote-text {
+  max-width: 18ch;
+  margin: 1.5rem auto 0;
+
+  color: var(--color-deep-purple);
+
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+/* Subtle decorative quotation mark */
+
+.gallery__quote-text::before {
+  content: '“';
+
+  display: block;
+  height: 0.55em;
+
+  color: var(--color-gold);
+
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 0.5;
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .gallery__field-wrap {
+    margin-top: 2.5rem;
+  }
+
+  .gallery__quote {
+    max-width: 760px;
+    margin-top: 5rem;
+  }
+
+  .gallery__quote-text {
+    max-width: 20ch;
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .gallery__title {
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+  }
+
+  .gallery__lead {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .gallery__field-wrap {
+    margin-top: 2.25rem;
+  }
+
+  .gallery__quote {
+    margin-top: 4rem;
+    padding: 3rem 0.75rem 0.5rem;
+  }
+
+  .gallery__quote::before {
+    width: 42px;
+  }
+
+  .gallery__quote-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .gallery__quote-text {
+    max-width: 17ch;
+    margin-top: 1.35rem;
+
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+    line-height: 1.15;
+  }
+
+  .gallery__quote-text::before {
+    font-size: 3.2rem;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery__quote {
+    transition: none;
+  }
+}

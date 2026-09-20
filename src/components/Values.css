@@ -1,0 +1,70 @@
+.values {
+  background: var(--color-near-black);
+  color: var(--color-off-white);
+}
+
+.values__intro {
+  max-width: 32ch;
+}
+
+.values__title {
+  margin-top: 1.1rem;
+  color: var(--color-off-white);
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+}
+
+.values__list {
+  list-style: none;
+  margin: 3.5rem 0 0;
+  padding: 0;
+  border-top: 1px solid rgba(251, 249, 246, 0.14);
+}
+
+.values__row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 2fr;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.9rem 0;
+  border-bottom: 1px solid rgba(251, 249, 246, 0.14);
+  transition: padding-left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.values__row:hover {
+  padding-left: 0.75rem;
+}
+
+.values__number {
+  font-family: var(--font-display);
+  color: var(--color-gold);
+  font-size: 1.1rem;
+}
+
+.values__name {
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: var(--color-off-white);
+}
+
+.values__desc {
+  color: rgba(251, 249, 246, 0.72);
+  max-width: 46ch;
+}
+
+@media (max-width: 760px) {
+  .values__row {
+    grid-template-columns: 3rem 1fr;
+    grid-template-areas:
+      'num name'
+      'desc desc';
+  }
+  .values__number {
+    grid-area: num;
+  }
+  .values__name {
+    grid-area: name;
+  }
+  .values__desc {
+    grid-area: desc;
+    margin-top: 0.6rem;
+  }
+}

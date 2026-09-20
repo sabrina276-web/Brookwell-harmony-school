@@ -1,0 +1,367 @@
+.academics {
+  background: var(--color-lavender);
+  overflow: hidden;
+}
+
+/* =========================
+   INTRO
+   ========================= */
+
+.academics__intro {
+  max-width: 620px;
+}
+
+.academics__title {
+  margin-top: 1.1rem;
+  max-width: 14ch;
+
+  color: var(--color-near-black);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.academics__lead {
+  margin-top: 1.5rem;
+  max-width: 52ch;
+
+  color: #4a4152;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* =========================
+   CARD GRID
+   ========================= */
+
+.academics__cards {
+  margin-top: clamp(4rem, 7vw, 6rem);
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+}
+
+/* =========================
+   CARD
+   ========================= */
+
+.academics__card {
+  height: 340px;
+
+  perspective: 1400px;
+  cursor: pointer;
+}
+
+.academics__card-inner {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Flip on hover */
+@media (hover: hover) and (pointer: fine) {
+  .academics__card:hover .academics__card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Flip when keyboard focused */
+.academics__card:focus-within .academics__card-inner {
+  transform: rotateY(180deg);
+}
+
+/* =========================
+   CARD FACES
+   ========================= */
+
+.academics__card-face {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  border: 1px solid rgba(46, 26, 77, 0.18);
+  border-radius: 14px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  overflow: hidden;
+}
+
+/* =========================
+   FRONT
+   ========================= */
+
+.academics__card-front {
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.58),
+      rgba(241, 236, 247, 0.7)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(46, 26, 77, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+.academics__card-front::before {
+  content: '';
+
+  position: absolute;
+  width: 170px;
+  height: 170px;
+
+  right: -65px;
+  top: -65px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(110, 51, 201, 0.18);
+}
+
+.academics__card-front::after {
+  content: '';
+
+  position: absolute;
+  width: 110px;
+  height: 110px;
+
+  right: -40px;
+  top: -40px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(232, 166, 60, 0.25);
+}
+
+.academics__card-number {
+  position: relative;
+  z-index: 1;
+
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+
+  color: var(--color-rich-violet);
+}
+
+.academics__card-front-content {
+  position: relative;
+  z-index: 1;
+}
+
+.academics__card-front h3 {
+  margin: 0;
+
+  max-width: 10ch;
+
+  color: var(--color-near-black);
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.academics__card-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: 1.5rem;
+
+  color: var(--color-rich-violet);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.academics__card-hint span {
+  font-size: 1rem;
+
+  transition: transform 0.3s ease;
+}
+
+.academics__card:hover .academics__card-hint span {
+  transform: translate(3px, -3px);
+}
+
+/* =========================
+   BACK
+   ========================= */
+
+.academics__card-back {
+  transform: rotateY(180deg);
+
+  justify-content: space-between;
+
+  background: var(--color-deep-purple);
+
+  border-color: rgba(232, 166, 60, 0.2);
+
+  color: var(--color-off-white);
+
+  box-shadow:
+    0 20px 50px rgba(21, 15, 31, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.academics__card-back .academics__card-number {
+  color: var(--color-gold);
+}
+
+.academics__card-back-content {
+  position: relative;
+  z-index: 1;
+}
+
+.academics__card-back h3 {
+  margin: 0;
+
+  color: var(--color-off-white);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.academics__card-back p {
+  margin-top: 1.2rem;
+
+  max-width: 34ch;
+
+  color: rgba(251, 249, 246, 0.78);
+  font-size: 0.96rem;
+  line-height: 1.75;
+}
+
+.academics__card-back-line {
+  display: block;
+
+  width: 42px;
+  height: 2px;
+
+  margin-top: 1.7rem;
+
+  background: var(--color-gold);
+
+  transition: width 0.4s ease;
+}
+
+.academics__card:hover .academics__card-back-line {
+  width: 68px;
+}
+
+/* Decorative circle on back */
+.academics__card-back::after {
+  content: '';
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -110px;
+  bottom: -110px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(232, 166, 60, 0.15);
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+  .academics__title {
+    max-width: 16ch;
+  }
+
+  .academics__cards {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .academics__card {
+    height: 300px;
+  }
+
+  .academics__card-front h3 {
+    max-width: 14ch;
+  }
+
+  .academics__card-back p {
+    max-width: 50ch;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 520px) {
+  .academics__title {
+    max-width: 13ch;
+
+    font-size: clamp(2.15rem, 10vw, 2.8rem);
+  }
+
+  .academics__lead {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .academics__cards {
+    margin-top: 3rem;
+    gap: 1rem;
+  }
+
+  .academics__card {
+    height: 280px;
+  }
+
+  .academics__card-face {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .academics__card-front h3 {
+    font-size: 1.6rem;
+  }
+
+  .academics__card-back h3 {
+    font-size: 1.45rem;
+  }
+
+  .academics__card-back p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .academics__card-inner {
+    transition: none;
+  }
+}

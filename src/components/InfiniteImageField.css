@@ -1,0 +1,186 @@
+.infinite-field {
+  position: relative;
+  width: 100%;
+  height: clamp(360px, 50vw, 570px);
+  overflow: hidden;
+
+  border: 1px solid rgba(46, 26, 77, 0.12);
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(110, 51, 201, 0.18),
+      transparent 55%
+    ),
+    var(--color-deep-purple);
+
+  cursor: grab;
+  touch-action: none;
+
+  box-shadow:
+    0 34px 80px -36px rgba(21, 15, 31, 0.5),
+    0 8px 24px rgba(46, 26, 77, 0.08);
+
+  isolation: isolate;
+}
+
+.infinite-field:active {
+  cursor: grabbing;
+}
+
+.infinite-field__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------
+   Cinematic edge treatment
+-------------------------------------------------- */
+
+.infinite-field::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 15, 31, 0.18) 0%,
+      transparent 18%,
+      transparent 78%,
+      rgba(21, 15, 31, 0.28) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(21, 15, 31, 0.14),
+      transparent 16%,
+      transparent 84%,
+      rgba(21, 15, 31, 0.14)
+    );
+
+  box-shadow:
+    inset 0 0 90px rgba(21, 15, 31, 0.2);
+}
+
+/* Subtle inner frame */
+
+.infinite-field::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  z-index: 2;
+
+  border: 1px solid rgba(251, 249, 246, 0.16);
+  border-radius: 12px;
+
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   Optional interaction hint
+   This is ready for the hint element if/when we add it
+-------------------------------------------------- */
+
+.infinite-field__hint {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.58rem 0.9rem;
+
+  border: 1px solid rgba(251, 249, 246, 0.12);
+  border-radius: 999px;
+
+  background: rgba(21, 15, 31, 0.48);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: var(--color-off-white);
+
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  pointer-events: none;
+}
+
+.infinite-field__hint-dot {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+
+  border-radius: 50%;
+
+  background: var(--color-gold);
+
+  box-shadow:
+    0 0 0 4px rgba(232, 166, 60, 0.1);
+}
+
+/* --------------------------------------------------
+   Tablet
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .infinite-field {
+    height: clamp(360px, 58vw, 500px);
+    border-radius: 16px;
+  }
+
+  .infinite-field::after {
+    inset: 10px;
+    border-radius: 10px;
+  }
+}
+
+/* --------------------------------------------------
+   Mobile
+-------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .infinite-field {
+    height: min(118vw, 480px);
+    min-height: 320px;
+
+    border-radius: 14px;
+
+    box-shadow:
+      0 26px 55px -30px rgba(21, 15, 31, 0.48);
+  }
+
+  .infinite-field::after {
+    inset: 8px;
+    border-radius: 9px;
+  }
+
+  .infinite-field__hint {
+    left: 1rem;
+    bottom: 1rem;
+
+    padding: 0.5rem 0.75rem;
+
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+  }
+}
+
+/* --------------------------------------------------
+   Reduced motion
+-------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .infinite-field {
+    cursor: default;
+  }
+} 

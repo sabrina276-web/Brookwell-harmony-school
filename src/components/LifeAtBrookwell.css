@@ -1,0 +1,551 @@
+.life {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-near-black);
+  padding-block: var(--section-padding);
+}
+
+/* ================================
+   INTRO
+================================ */
+
+.life__intro {
+  max-width: 620px;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.life__headline {
+  margin-top: 1.1rem;
+  color: var(--color-off-white);
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.life__subtext {
+  margin-top: 1.4rem;
+  max-width: 46ch;
+  color: rgba(251, 249, 246, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ================================
+   CAROUSEL
+================================ */
+
+.life__carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.life__carousel-stage {
+  position: relative;
+  width: min(1120px, 100%);
+  height: clamp(460px, 48vw, 620px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1600px;
+}
+
+/* ================================
+   ACTIVE CARD
+================================ */
+
+.life__active-card {
+  position: relative;
+  z-index: 3;
+
+  width: min(760px, 68vw);
+  height: clamp(420px, 43vw, 560px);
+
+  overflow: hidden;
+
+  border-radius: 14px;
+
+  background: var(--color-deep-purple);
+
+  box-shadow:
+    0 35px 80px rgba(0, 0, 0, 0.48),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.life__active-image-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.life__active-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.life__active-card:hover .life__active-image {
+  transform: scale(1.035);
+}
+
+.life__active-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 15, 31, 0.02) 20%,
+      rgba(21, 15, 31, 0.16) 42%,
+      rgba(21, 15, 31, 0.92) 100%
+    );
+}
+
+/* ================================
+   ACTIVE CONTENT
+================================ */
+
+.life__active-content {
+  position: absolute;
+  z-index: 2;
+
+  inset-inline: 0;
+  bottom: 0;
+
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+
+  color: var(--color-off-white);
+}
+
+.life__active-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  margin-bottom: 1rem;
+}
+
+.life__active-index {
+  font-family: var(--font-display);
+  color: var(--color-gold);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.life__active-content h3 {
+  margin: 0;
+
+  max-width: 15ch;
+
+  color: var(--color-off-white);
+
+  font-size: clamp(1.8rem, 4vw, 3.1rem);
+  line-height: 1.05;
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+.life__active-content p {
+  margin-top: 1rem;
+
+  max-width: 48ch;
+
+  color: rgba(251, 249, 246, 0.8);
+
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.7;
+}
+
+/* ================================
+   SIDE CARDS
+================================ */
+
+.life__side-card {
+  position: absolute;
+  z-index: 2;
+
+  width: clamp(78px, 9vw, 120px);
+  height: clamp(260px, 32vw, 390px);
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: var(--color-deep-purple);
+
+  cursor: pointer;
+
+  opacity: 0.72;
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.35);
+
+  transition:
+    opacity 0.35s ease,
+    filter 0.35s ease;
+}
+
+.life__side-card:hover {
+  opacity: 1;
+  filter: brightness(1.08);
+}
+
+.life__side-card--left {
+  left: 0;
+}
+
+.life__side-card--right {
+  right: 0;
+}
+
+.life__side-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.life__side-shade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(21, 15, 31, 0.1),
+      rgba(21, 15, 31, 0.45)
+    );
+}
+
+/* ================================
+   ARROWS
+================================ */
+
+.life__arrow {
+  position: absolute;
+  z-index: 5;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border: 1px solid rgba(251, 249, 246, 0.22);
+  border-radius: 50%;
+
+  background: rgba(21, 15, 31, 0.78);
+
+  color: var(--color-off-white);
+
+  font-size: 1.2rem;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.life__arrow:hover {
+  background: var(--color-rich-violet);
+  border-color: var(--color-rich-violet);
+
+  transform: scale(1.06);
+}
+
+.life__arrow--left {
+  left: 1rem;
+}
+
+.life__arrow--right {
+  right: 1rem;
+}
+
+/* ================================
+   PROGRESS
+================================ */
+
+.life__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1.4rem;
+
+  margin-top: 2rem;
+}
+
+.life__progress {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.life__progress-item {
+  width: 24px;
+  height: 4px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.life__progress-track {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(251, 249, 246, 0.2);
+}
+
+.life__progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--color-gold);
+}
+
+.life__progress-fill--paused {
+  width: 48%;
+}
+
+.life__counter {
+  color: rgba(251, 249, 246, 0.48);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+}
+
+/* ================================
+   CLOSING
+================================ */
+
+.life__closing {
+  margin-top: clamp(4rem, 8vw, 7rem);
+
+  text-align: center;
+}
+
+.life__closing-line {
+  max-width: 720px;
+
+  margin: 1rem auto 0;
+
+  color: var(--color-off-white);
+
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+
+  line-height: 1.15;
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+  .life__carousel-stage {
+    height: 520px;
+  }
+
+  .life__active-card {
+    width: min(620px, 76vw);
+    height: 460px;
+  }
+
+  .life__side-card {
+    width: 70px;
+    height: 330px;
+  }
+
+  .life__arrow--left {
+    left: 0.5rem;
+  }
+
+  .life__arrow--right {
+    right: 0.5rem;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 640px) {
+  .life__intro {
+    margin-bottom: 2.5rem;
+  }
+
+  .life__headline {
+    font-size: clamp(2.1rem, 10vw, 2.8rem);
+  }
+
+  .life__subtext {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .life__carousel-stage {
+    width: calc(100% + 2rem);
+
+    margin-left: -1rem;
+
+    height: 470px;
+  }
+
+  .life__active-card {
+    width: calc(100vw - 72px);
+    height: 430px;
+
+    border-radius: 12px;
+  }
+
+  .life__side-card {
+    width: 54px;
+    height: 360px;
+
+    border-radius: 8px;
+
+    opacity: 0.65;
+  }
+
+  .life__side-card--left {
+    left: -4px;
+  }
+
+  .life__side-card--right {
+    right: -4px;
+  }
+
+  .life__active-content {
+    padding: 1.4rem;
+  }
+
+  .life__active-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .life__active-content p {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .life__arrow {
+    width: 40px;
+    height: 40px;
+
+    font-size: 1rem;
+  }
+
+  .life__arrow--left {
+    left: 0;
+  }
+
+  .life__arrow--right {
+    right: 0;
+  }
+
+  .life__controls {
+    margin-top: 1.25rem;
+  }
+
+  .life__progress {
+    gap: 0.35rem;
+  }
+
+  .life__progress-item {
+    width: 18px;
+  }
+
+  .life__progress-item--active {
+    width: 30px;
+  }
+
+  .life__closing {
+    margin-top: 4rem;
+  }
+}
+
+/* ================================
+   VERY SMALL PHONES
+================================ */
+
+@media (max-width: 390px) {
+  .life__active-card {
+    width: calc(100vw - 64px);
+    height: 410px;
+  }
+
+  .life__side-card {
+    width: 46px;
+  }
+
+  .life__active-content h3 {
+    font-size: 1.65rem;
+  }
+
+  .life__active-content p {
+    font-size: 0.86rem;
+  }
+
+  .life__counter {
+    display: none;
+  }
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .life__active-image,
+  .life__side-card,
+  .life__arrow,
+  .life__progress-track {
+    transition: none;
+  }
+}

@@ -1,0 +1,100 @@
+.circular-text {
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.circular-text span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
+  transform-origin: 7px 7px;
+}
+
+/* Hero positioning */
+.hero__circle {
+  left: auto;
+  right: clamp(8%, 12vw, 16%);
+  top: 25%;
+}
+
+/* Keep the badge away from the headline on smaller screens */
+@media (max-width: 900px) {
+  .circular-text {
+    width: 120px;
+    height: 120px;
+    font-size: 10px;
+  }
+
+  .circular-text span {
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    transform-origin: 6px 6px;
+  }
+
+  .hero__circle {
+    right: 5%;
+    top: 20%;
+  }
+}
+
+@media (max-width: 700px) {}
+  .circular-text {
+    width: 105px;
+    height: 105px;
+    font-size: 9px;
+    letter-spacing: 0.07em;
+  }
+
+  .circular-text span {
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    transform-origin: 5px 5px;
+  }
+
+  .hero__circle {
+    display: block;
+    right: 8%;
+    left: auto;
+    top: 14%;
+  }
+
+  @media (max-width: 700px) {
+  .hero .hero__circle {
+    display: block !important;
+    position: absolute;
+    z-index: 20;
+
+    width: 105px;
+    height: 105px;
+
+    left: 50%;
+    right: auto;
+    top: 18%;
+
+    transform: translateX(-50%);
+
+    color: var(--color-gold);
+  }
+
+  .hero .hero__circle span {
+    font-size: 9px;
+  }
+}
