@@ -4,7 +4,7 @@ import './Values.css';
 
 function Values() {
   return (
-    <section className="values section">
+    <section id="values" className="values section">
       <div className="container">
         <motion.div
           className="values__intro"

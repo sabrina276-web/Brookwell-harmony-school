@@ -15,9 +15,9 @@ export const school = {
 export const nav = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'What We Stand For', href: '#values' },
+  { label: 'Values', href: '#values' },
   { label: 'Academics', href: '#academics' },
-  { label: 'Why Brookwell', href: '#why-brookwell' },
+  { label: 'Why Us', href: '#why-brookwell' },
   { label: 'Life at Brookwell', href: '#life' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Admissions', href: '#admissions' },

@@ -22,7 +22,7 @@ const reasons = [
 
 function WhyBrookwell() {
   return (
-    <section className="why section">
+    <section id="why-brookwell" className="why section">
       <div className="container why__grid">
         <motion.div
           className="why__image-wrap"
