@@ -1,3 +1,5 @@
+
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Academics.css';
 
@@ -20,6 +22,12 @@ const pillars = [
 ];
 
 function Academics() {
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    setFlippedCard((current) => (current === index ? null : index));
+  };
+
   return (
     <section id="academics" className="academics section">
       <div className="container">
@@ -46,7 +54,9 @@ function Academics() {
         <div className="academics__cards">
           {pillars.map((pillar, i) => (
             <motion.div
-              className="academics__card"
+              className={`academics__card ${
+                flippedCard === i ? 'is-flipped' : ''
+              }`}
               key={pillar.title}
               initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -55,6 +65,15 @@ function Academics() {
                 duration: 0.75,
                 delay: i * 0.12,
                 ease: [0.22, 1, 0.36, 1],
+              }}
+              onClick={() => handleCardClick(i)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCardClick(i);
+                }
               }}
             >
               <div className="academics__card-inner">

@@ -1,20 +1,49 @@
 .whatsapp-btn {
   position: fixed;
-  right: clamp(1.1rem, 3vw, 1.75rem);
-  bottom: clamp(1.1rem, 3vw, 1.75rem);
+
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+
   z-index: 90;
+
   width: 56px;
   height: 56px;
+
   border-radius: 50%;
+
   background: #25d366;
   color: #0b2e18;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   box-shadow: 0 14px 28px -10px rgba(0, 0, 0, 0.45);
+
+  flex-shrink: 0;
 }
 
+/* Keep the icon proportional */
 .whatsapp-btn svg {
   width: 28px;
   height: 28px;
+}
+
+/* =========================
+   SMALL PHONES
+   ========================= */
+
+@media (max-width: 360px) {
+  .whatsapp-btn {
+    right: 0.85rem;
+    bottom: 0.85rem;
+
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-btn svg {
+    width: 26px;
+    height: 26px;
+  }
 }

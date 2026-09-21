@@ -206,18 +206,111 @@
 }
 
 @media (max-width: 560px) {
+  .admissions__grid {
+    gap: 2.5rem;
+  }
+
+  .admissions__intro {
+    padding-inline: 0;
+  }
+
+  .admissions__title {
+    max-width: 16ch;
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .admissions__body {
+    font-size: 0.95rem;
+  }
+
+  .admissions__contact-list {
+    width: 100%;
+    margin-top: 1.8rem;
+  }
+
+  .admissions__contact-list li {
+    grid-template-columns: 70px minmax(0, 1fr);
+    column-gap: 0.7rem;
+  }
+
+  .admissions__contact-list li > *:last-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .admissions__form {
+    width: 100%;
+    min-width: 0;
+    padding: 1.35rem;
+    gap: 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .admissions__form-header h3 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+
+  .admissions__form-header p {
+    font-size: 0.86rem;
+  }
+
   .admissions__row {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .admissions__field input,
+  .admissions__field textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .admissions__actions {
-  flex-direction: column;
-}
+    flex-direction: column;
+    width: 100%;
+  }
 
-.admissions__actions .btn {
-  width: 100%;
-}
- .admissions__contact-list li {
-    grid-template-columns: 75px 1fr;
+  .admissions__actions .btn {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .admissions__note {
+    font-size: 0.76rem;
   }
 }
+
+@media (max-width: 360px) {
+  .admissions__form {
+    padding: 1.1rem;
+    border-radius: 8px;
+  }
+
+  .admissions__contact-list li {
+    grid-template-columns: 62px minmax(0, 1fr);
+    column-gap: 0.55rem;
+  }
+
+  .admissions__contact-label {
+    font-size: 0.62rem;
+  }
+
+  .admissions__contact-list li > *:last-child {
+    font-size: 0.82rem;
+  }
+
+  .admissions__form-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .admissions__field input,
+  .admissions__field textarea {
+    padding: 0.75rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+

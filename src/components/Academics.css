@@ -73,6 +73,11 @@
   }
 }
 
+/* Flip on tap / click */
+.academics__card.is-flipped .academics__card-inner {
+  transform: rotateY(180deg);
+}
+
 /* Flip when keyboard focused */
 .academics__card:focus-within .academics__card-inner {
   transform: rotateY(180deg);
